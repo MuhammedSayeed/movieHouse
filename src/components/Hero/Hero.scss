@@ -4,6 +4,7 @@
     max-height: 100%;
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 10px;
 }
 
 .show-name{
@@ -17,8 +18,8 @@
 .show-desc{
     display: flex;
     align-items: center;
-    min-width:400px;
-    max-width: 812px;
+    min-width:300px;
+    
 
     p{
         color: rgba(255, 255, 255, 0.643);
