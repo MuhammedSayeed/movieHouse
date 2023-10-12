@@ -15,14 +15,9 @@ function HomeLayout() {
     style={{ backgroundImage: `url('${api.baseUrl_original}${data.backdrop_path}')` }}
     className='home'>
     <div className="home-content">
-      <div className="hero">
-        <Hero data={data} />
-      </div>
-      <div className="rows">
-        <Row apiUrl={api.getTrending} title = {'Trending'} bigPoster = {false} />
-        <Row apiUrl={api.topRated} title = {'Top rated'} bigPoster = {true} />
-
-      </div>
+      <Hero data={data} />
+      <Row apiUrl={api.getTrending} title={'Trending'} bigPoster={false} />
+      <Row apiUrl={api.topRated} title={'Top rated'} bigPoster={true} />
     </div>
     <Gradiant />
   </div>

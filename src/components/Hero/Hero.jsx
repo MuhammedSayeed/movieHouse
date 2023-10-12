@@ -6,7 +6,7 @@ function Hero({ data }) {
   console.log(data);
   return <div className="heroContent">
     <div className="show-name">
-      <h1>{data.original_name || data.original_title}</h1>
+      <h1>{truncateString(10,data?.original_name) || truncateString(10,data?.original_title)}</h1>
     </div>
     <div className="show-desc">
       <p>{truncateString(170, data.overview)}</p>
