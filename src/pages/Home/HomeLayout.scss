@@ -6,6 +6,7 @@
     align-items: flex-end;
     background-size: cover;
     background-position: center center;
+    background-attachment: fixed;
     object-fit: cover;
     position: relative;
 }
@@ -34,6 +35,7 @@
 
 @media only screen and (min-width: 0px) and (max-width: 950px){
     .home{
-        min-height: 100vh;
+        height: 110vh;
+        background-color: darkblue;
     }
 }
