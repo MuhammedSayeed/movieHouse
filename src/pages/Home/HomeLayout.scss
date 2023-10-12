@@ -26,11 +26,14 @@
     max-height: 340px;
 
 }
-
-
-
 .rows{
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 950px){
+    .home{
+        min-height: 100vh;
+    }
 }
