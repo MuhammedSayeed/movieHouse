@@ -18,8 +18,13 @@
     padding: 0 20px;
     z-index: 4;
     display: grid;
-    grid-template-rows: 40% 1fr;
-    padding-top: 40px;
+    grid-template-rows: 340px 1fr;
+}
+
+.hero{
+    min-height: 340px;
+    max-height: 340px;
+
 }
 
 
