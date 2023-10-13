@@ -6,10 +6,10 @@ function Hero({ data }) {
   console.log(data);
   return <div className="heroContent">
     <div className="show-name">
-      <h1>{truncateString(10,data?.original_name) || truncateString(10,data?.original_title)}</h1>
+      <h1>{truncateString(8,data?.original_name) || truncateString(8,data?.original_title)}</h1>
     </div>
     <div className="show-desc">
-      <p>{truncateString(170, data.overview)}</p>
+      <p>{truncateString(85, data.overview)}</p>
     </div>
     <div className="more-info">
       <div className="realse-and-time">
