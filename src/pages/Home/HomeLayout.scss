@@ -1,5 +1,6 @@
 .home{
-    height: 100vh;
+    min-height: 100vh;
+    // max-height: auto;
     width: 100%;
     display: flex;
     align-items: flex-end;
@@ -15,15 +16,18 @@
 .home-content{
     position: relative;
     z-index: 4;
+    min-height: 100vh;
+    width: 100%;
     padding-left: 20px;
     padding-right: 20px;
-    min-height: 100%;
-    padding-top: 75px;
     display: grid;
+    grid-template-rows: 1/2fr 1fr;
+
+
 
 }
 .hero{
-
+    margin-top: 75px;
     display: flex;
     flex-direction:column;
    justify-content:  center;
@@ -33,6 +37,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+
 
 }
 
