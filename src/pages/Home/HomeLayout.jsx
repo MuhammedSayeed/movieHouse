@@ -22,9 +22,6 @@ function HomeLayout() {
       <div className="rows">
         <Row apiUrl={api.getTrending} title={'Trending'} bigPoster={false} />
         <Row apiUrl={api.topRated} title={'Top rated'} bigPoster={true} />
-        <Row apiUrl={api.topRated} title={'Top rated'} bigPoster={true} />
-        <Row apiUrl={api.topRated} title={'Top rated'} bigPoster={true} />
-
       </div>
 
     </div>
