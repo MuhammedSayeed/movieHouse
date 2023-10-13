@@ -1,10 +1,33 @@
+@import '../../assets/scss/variables';
+
+
 .shows{
     width: 100%;
     min-height: 100vh;
+    
 }
 .loadMore{
     width: 100%;
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    margin-bottom: 20px;
+
+    .loadMore-btn{
+        cursor: pointer;
+        color: $dark-purple;
+        outline: none;
+        border: none;
+        font-weight: 600;
+        border-radius: 2px;
+        padding: .7rem 2rem;
+        margin-right: 1rem;
+        background-color: $white-color;
+        font-size: 1.2rem;
+        transition: background-color 200ms ease-in-out;
+
+        &:hover{
+            background-color: $more-darker-white ;
+        }
+    }
 }

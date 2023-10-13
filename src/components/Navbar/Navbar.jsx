@@ -4,10 +4,13 @@ import logo from '../../assets/imgs/logo.png'
 import NavbarLink from './NavbarLink.jsx'
 import { FaBars } from 'react-icons/fa'
 import { BiSearch } from 'react-icons/bi'
-import { NavLink, Outlet } from 'react-router-dom'
+import { NavLink, Outlet, useNavigation } from 'react-router-dom'
+import LoadingScreen from '../LoadingScreen/LoadingScreen.jsx'
 function Navbar() {
 
   const [openMiniNav, setOpenMiniNav] = useState(false);
+  const navigation = useNavigation();
+
 
   const handleOpenMiniBar = () => {
     setOpenMiniNav(!openMiniNav)
@@ -43,7 +46,8 @@ function Navbar() {
         openMiniNav && <div className="miniNav"> <NavbarLink show={true} /></div>
       }
     </nav>
-    <Outlet/>
+    {navigation.state === 'loading' ? <LoadingScreen /> : <Outlet />}
+
   </>
 }
 

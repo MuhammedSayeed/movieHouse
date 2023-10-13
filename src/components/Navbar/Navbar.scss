@@ -1,3 +1,5 @@
+@import '../../assets/scss/variables';
+
 .navbar {
     width: 100%;
     min-height: 75px;
@@ -91,6 +93,7 @@
         align-items: center;
         justify-content: flex-end;
         padding-right: 20px;
+
     }
     .miniNav {
         position: absolute;
@@ -100,14 +103,15 @@
         width: 180px;
         height: 350px;
         border-radius: 10px;
-        background-color: rgba(0, 0, 0, 0.356);
+        background-color: #111830a2;
         display: flex;
         flex-direction: column;
         justify-content: center;
         gap: 25px;
         transition: all ease-in-out 400ms;
-        backdrop-filter: blur(5px);
+        backdrop-filter: blur(40px);
         box-shadow: 5px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 14px 8px rgba(0,0,0,0.1);
+        border: 1px solid rgba(255, 255, 255, 0.121);
         .links {
             display: flex;
             flex-direction: column;
