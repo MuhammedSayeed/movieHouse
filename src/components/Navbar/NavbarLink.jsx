@@ -1,6 +1,5 @@
 import React from 'react'
 import { BiSearch } from "react-icons/bi";
-import { FaBars } from 'react-icons/fa';
 import { NavLink } from "react-router-dom";
 function NavbarLink({ show }) {
     const Links = [
@@ -14,8 +13,6 @@ function NavbarLink({ show }) {
     const search = {
         icon: <BiSearch />
     }
-
-
 
     return <>
         <div className="links">

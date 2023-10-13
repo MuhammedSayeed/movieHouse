@@ -1,0 +1,9 @@
+button{
+    outline: none;
+    cursor: pointer;
+    color: black;
+    border: 2px solid white;
+    padding: 2px 7px;
+    transition: background-color 100ms, color 100ms;
+    font-weight: 800;
+}

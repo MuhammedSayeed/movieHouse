@@ -1,0 +1,28 @@
+.genresContianer{
+    margin-top: 75px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+
+}
+.genre{
+    min-width: 90px;
+    min-height: 30px;
+    font-weight: 700;
+    border-radius: 2px;
+    font-style: 15px;
+    background-color: transparent;
+    outline: none;
+    border: .15rem solid white;
+    cursor: pointer;
+    color: white;
+    opacity: .9;
+    transition: background-color 200ms, color 200ms;
+
+    &:hover {
+        background-color: white;
+        color: black;
+    }
+}

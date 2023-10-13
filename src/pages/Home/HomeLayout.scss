@@ -1,6 +1,5 @@
-.home{
+.home {
     min-height: 100vh;
-    // max-height: auto;
     width: 100%;
     display: flex;
     align-items: flex-end;
@@ -13,7 +12,7 @@
 
 
 
-.home-content{
+.home-content {
     position: relative;
     z-index: 4;
     min-height: 100vh;
@@ -22,26 +21,18 @@
     padding-right: 20px;
     display: grid;
     grid-template-rows: 1/2fr 1fr;
-
-
-
 }
-.hero{
+
+.hero {
     margin-top: 75px;
-    display: flex;
-    flex-direction:column;
-   justify-content:  center;
-
-}
-.rows{
     display: flex;
     flex-direction: column;
     justify-content: center;
-
-
 }
 
-
-@media only screen and (min-width: 0px) and (max-width: 950px){
-    
+.rows {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
+

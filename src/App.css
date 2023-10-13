@@ -12,3 +12,10 @@
     background: #304796;
     transition: background-color 400ms ;
   }
+
+
+  body{
+    background: rgb(26,39,80);
+    background: radial-gradient(circle, rgba(26,39,80,1) 0%, rgba(17,24,48,1) 100%);
+    
+  }

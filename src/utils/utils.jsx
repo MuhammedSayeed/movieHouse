@@ -15,8 +15,12 @@ function getYears(date) {
     const datee = new Date(`${date}`);
     return datee.getFullYear();
 }
+function roundToOneDecimalPlace(number) {
+    return Math.round(number * 10) / 10;
+}
 export {
     getRandomNumber,
     truncateString,
-    getYears
+    getYears,
+    roundToOneDecimalPlace
 }
