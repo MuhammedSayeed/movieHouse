@@ -21,6 +21,7 @@
     // background-color: cadetblue;
     display: grid;
     grid-template-rows:1fr 2px 1fr;
+    gap: 20px;
 
 }
 
@@ -31,9 +32,14 @@
     flex-direction: column;
     justify-content: center;
     gap: 15px;
+    width: 100%;
+    
 }
 .show-name{
     font-size: 1.3rem;
+min-width: 100%;
+
+    // background-color: darkblue;
 }
 .show-info{
     display: flex;
