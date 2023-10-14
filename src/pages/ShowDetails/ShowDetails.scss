@@ -1,0 +1,199 @@
+@import '../../assets/scss/variables';
+
+.show-details-container {
+
+    width: 100%;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    object-fit: cover;
+    position: relative;
+}
+
+.show-details-content {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    min-height: 100vh;
+    padding-left: 20px;
+    padding-right: 20px;
+    // background-color: cadetblue;
+    display: grid;
+    grid-template-rows:1fr 2px 1fr;
+
+}
+
+.show-details {
+    // background-color: firebrick;
+    margin-top: 75px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+}
+.show-name{
+    font-size: 1.3rem;
+}
+.show-info{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: $white-color;
+    .original-languauge{
+        border: 1px solid $white-color;
+        padding: 3px;
+        border-radius: 2px;
+    }
+    .show-actors{
+        display: flex;
+        gap: 10px;
+    }
+}
+.show-tagline{
+    color: $white-color;
+}
+.rating{
+    color: $white-color;
+}
+.show-type{
+    color: $white-color;
+}
+.show-btns{
+    .add{
+        outline: none;
+        border: none;
+        font-weight: 550;
+        background-color: $white-color;
+        font-size: 1.2rem;
+        padding: .8rem 2.3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2px;
+        border-radius: 2px;
+        cursor: pointer;
+        transition: 200ms background-color ease-in-out;
+
+        &:hover{
+            background-color: $more-darker-white;
+        }
+    }
+}
+
+.separate-line {
+    width: 100%;
+    height: 2px;
+    max-height: 2px;
+    background-color: $white-color;
+    opacity: .2;
+}
+.more-details{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.show-poster{
+    display: flex;
+    gap: 20px;
+
+    .poster{
+        min-width: 188px;
+        max-width: 188px;
+        max-height: 283px;
+        min-height: 283px;
+        img{
+           object-fit: cover;
+           width: 100%;
+           border-radius: 5px;
+           border: 2px solid rgba(255, 255, 255, 0.32);
+
+        }
+    }
+    .overview-and-genres{
+        max-width: 220px;
+        min-width: 220px;
+        max-height: 283px;
+        min-height: 283px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        color: $white-color;
+        padding: 2px 0;
+        opacity: .8;
+        .show-genres{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            .show-genre{
+                border: 1px solid $white-color;
+                padding: 4px;
+                border-radius: 2px;
+            }
+        }
+    }
+}
+
+.show-trailer{
+    // background-color: darkblue;
+    max-width: 300px;
+    min-width: 300px;
+    max-height: 172.61px;
+    min-height: 172.61px;
+    border-radius: 5px;
+    border: 2px solid rgba(255, 255, 255, 0.32);
+    transition: transform 200ms ease-in-out;
+    position: relative;
+
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 5px;
+       
+    }
+    .play-button{
+        position: absolute;
+        max-width: 294px;
+        min-width: 294px;
+        max-height: 170.61px;
+        min-height: 170.61px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg{
+            color: $white-color;
+            font-size: 1.7rem;
+            transition: transform 200ms ease-in-out;
+            cursor: pointer;
+        }
+
+        &:hover svg {
+            transform: scale(1.5);
+        }
+
+
+    }
+
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+@media only screen and (min-width: 0px) and (max-width: 770px){
+    .more-details{
+        margin-top: 50px;
+        flex-wrap: wrap;
+        // justify-content: ;
+        // background-color: darkblue;
+        margin-bottom: 20px;
+        
+        
+    }
+
+    .show-poster{
+        margin-bottom: 20px;
+    }
+}

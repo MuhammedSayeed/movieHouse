@@ -21,7 +21,6 @@ function Row({ apiUrl, title, bigPoster }) {
             isApiSubscribed = false;
         }
     }, [])
-    console.log(data)
     return <>
         <div className="row-container">
             <h2 className='row-title'>{title}</h2>
