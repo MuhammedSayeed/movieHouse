@@ -5,6 +5,7 @@ import Error from './components/Error/Error.jsx'
 import Navbar from './components/Navbar/Navbar.jsx'
 import ShowsLayout, { showsLoader } from './pages/ShowsLayout/ShowsLayout.jsx'
 import GenreFilter from './components/GenreFilter/GenreFilter.jsx'
+import ShowDetails from './pages/ShowDetails/ShowDetails.jsx'
 
 function App() {
 
@@ -33,6 +34,9 @@ function App() {
               loader : showsLoader
             }
           ]
+        },
+        {
+          path : 'shows/:type/:id' , element : <ShowDetails/>
         }
       ]
     }

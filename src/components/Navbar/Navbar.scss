@@ -9,7 +9,7 @@
     justify-content: space-between;
     position: absolute;
     left: 0;
-    right: 0; 
+    right: 0;
     top: 0;
     bottom: 0;
     z-index: 999;
@@ -22,6 +22,7 @@
     flex-basis: 70%;
     gap: 30px;
 }
+
 .links {
     display: flex;
     align-items: center;
@@ -40,6 +41,7 @@
     justify-content: flex-end;
     gap: 40px;
     flex-basis: 60%;
+
     .searchAndLogout {
         display: flex;
         align-items: center;
@@ -71,13 +73,12 @@
     height: 35px;
 }
 
-.miniNav{
+.miniNav {
     display: none;
 }
 
 .toggleBar {
     display: none;
-    color: white;
     font-size: 22px;
     cursor: pointer;
 }
@@ -86,8 +87,9 @@
     .right {
         display: none;
     }
+
     .toggleBar {
-        color: white;
+        color: $white-color;
         display: flex;
         width: 100%;
         align-items: center;
@@ -95,6 +97,7 @@
         padding-right: 20px;
 
     }
+
     .miniNav {
         position: absolute;
         bottom: 0;
@@ -110,8 +113,9 @@
         gap: 25px;
         transition: all ease-in-out 400ms;
         backdrop-filter: blur(40px);
-        box-shadow: 5px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 14px 8px rgba(0,0,0,0.1);
+        box-shadow: 5px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 10px 14px 8px rgba(0, 0, 0, 0.1);
         border: 1px solid rgba(255, 255, 255, 0.121);
+
         .links {
             display: flex;
             flex-direction: column;
@@ -124,8 +128,8 @@
                 font-size: 15px;
                 padding: 8px 25px;
                 border-radius: 15px;
-                color: white;
-                
+                color: $white-color;
+
 
             }
 
@@ -141,21 +145,24 @@
             justify-content: center;
             gap: 10px;
         }
-        .searchAndLogout .logout{
+
+        .searchAndLogout .logout {
             background-color: transparent;
             outline: none;
             border: none;
-            color: white;
+            color: $white-color;
             font-weight: 300;
         }
+
         .searchAndLogout .search {
             display: flex;
             align-items: center;
-            color: white;
+            color: $white-color;
             font-size: 22px;
         }
     }
-    .links{
+
+    .links {
         display: none;
     }
 }

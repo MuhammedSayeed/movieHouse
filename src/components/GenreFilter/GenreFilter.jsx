@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import './GenreFilter.scss'
-import { Outlet, useParams } from 'react-router-dom'
+import { NavLink, Outlet, useParams } from 'react-router-dom'
 import { MoviesGenres, TvGenres } from './GenresContainer.js';
 
 function GenreFilter() {
 
-  let {type} = useParams()
-  let {genre} = useParams();
-  let intGenre = parseInt(genre);
+  let { type } = useParams()
+  let { genre } = useParams();
+  let currentGenre = parseInt(genre);
   const [genreContainer, setGerneContainer] = useState([]);
-
-
 
   useEffect(() => {
     const SpecifyGenre = () => {
@@ -27,11 +25,8 @@ function GenreFilter() {
     <div className="genresContianer">
       {
         genreContainer.map((genre) => {
-          
-          return <div key={genre.id}>
-           
-            <button className={genre.id == intGenre ? 'genre active' : 'genre'}>{genre.name}</button>
-          </div>
+          return <NavLink to={`${type}/${genre.id}/1`} key={genre.id} className={genre.id == currentGenre ? 'genre active' : 'genre'}>{genre.name}</NavLink>
+
         })
       }
     </div>

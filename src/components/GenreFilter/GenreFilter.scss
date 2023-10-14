@@ -23,6 +23,9 @@
     color: $white-color;
     opacity: .9;
     transition: background-color 200ms, color 200ms;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     &:hover {
         background-color: $white-color;

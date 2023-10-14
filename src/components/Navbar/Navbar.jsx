@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import './Navbar.scss'
 import logo from '../../assets/imgs/logo.png'
-import NavbarLink from './NavbarLink.jsx'
 import { FaBars } from 'react-icons/fa'
 import { BiSearch } from 'react-icons/bi'
 import { NavLink, Outlet, useNavigation } from 'react-router-dom'
 import LoadingScreen from '../LoadingScreen/LoadingScreen.jsx'
+import NavbarLinks from './NavbarLinks.jsx'
 function Navbar() {
 
   const [openMiniNav, setOpenMiniNav] = useState(false);
@@ -15,6 +15,7 @@ function Navbar() {
   const handleOpenMiniBar = () => {
     setOpenMiniNav(!openMiniNav)
   }
+
   const search = {
     icon: <BiSearch />
   }
@@ -25,7 +26,7 @@ function Navbar() {
         <NavLink className='navbar-logo'>
           <img src={logo} alt="movie-house-logo" />
         </NavLink>
-        <NavbarLink show={false} />
+        <NavbarLinks show={false} />
       </div>
       <div onClick={handleOpenMiniBar} className="toggleBar">
         <FaBars />
@@ -43,7 +44,7 @@ function Navbar() {
         </div>
       </div>
       {
-        openMiniNav && <div className="miniNav"> <NavbarLink show={true} /></div>
+        openMiniNav && <div className="miniNav"> <NavbarLinks handleOpenMiniBar={handleOpenMiniBar} show={true} /></div>
       }
     </nav>
     {navigation.state === 'loading' ? <LoadingScreen /> : <Outlet />}
