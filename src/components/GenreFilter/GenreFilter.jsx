@@ -5,7 +5,9 @@ import { MoviesGenres, TvGenres } from './GenresContainer.js';
 
 function GenreFilter() {
 
-  let type = useParams().type;
+  let {type} = useParams()
+  let {genre} = useParams();
+  let intGenre = parseInt(genre);
   const [genreContainer, setGerneContainer] = useState([]);
 
 
@@ -25,8 +27,10 @@ function GenreFilter() {
     <div className="genresContianer">
       {
         genreContainer.map((genre) => {
+          
           return <div key={genre.id}>
-            <button className='genre'>{genre.name}</button>
+           
+            <button className={genre.id == intGenre ? 'genre active' : 'genre'}>{genre.name}</button>
           </div>
         })
       }

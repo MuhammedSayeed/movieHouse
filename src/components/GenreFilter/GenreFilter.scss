@@ -1,3 +1,4 @@
+@import '../../assets/scss/variables';
 .genresContianer{
     margin-top: 85px;
     width: 100%;
@@ -17,14 +18,19 @@
     font-style: 15px;
     background-color: transparent;
     outline: none;
-    border: .15rem solid white;
+    border: .15rem solid $white-color;
     cursor: pointer;
-    color: white;
+    color: $white-color;
     opacity: .9;
     transition: background-color 200ms, color 200ms;
 
     &:hover {
-        background-color: white;
-        color: black;
+        background-color: $white-color;
+        color: $dark-purple;
     }
+}
+
+.genre.active{
+    background-color: $white-color;
+    color: $dark-purple;
 }
