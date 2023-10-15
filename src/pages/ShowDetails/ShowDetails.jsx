@@ -47,7 +47,8 @@ function ShowDetails() {
           {type}
         </div>
         <div className="show-btns">
-          <button className='add'>Add +</button>
+          <button className='btn-style add'>Add +</button>
+          <button className='btn-style play-trailer'>trailer <FaPlay/></button>
         </div>
       </div>
       <div className="separate-line"></div>
@@ -71,13 +72,7 @@ function ShowDetails() {
             </div>
           </div>
         </div>
-        <div className="show-trailer">
-          <div className="play-button">
-            <FaPlay />
-          </div>
-          <img src={`${small_backdrop}${data.backdrop_path}`} alt={data.id} />
 
-        </div>
       </div>
     </div>
     <Gradiant />

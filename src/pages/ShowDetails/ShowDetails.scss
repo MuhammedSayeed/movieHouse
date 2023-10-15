@@ -18,61 +18,71 @@
     min-height: 100vh;
     padding-left: 20px;
     padding-right: 20px;
-    // background-color: cadetblue;
-    display: grid;
-    grid-template-rows:1fr 2px 1fr;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     gap: 20px;
 
 }
 
 .show-details {
-    // background-color: firebrick;
+
     margin-top: 75px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 15px;
     width: 100%;
+    flex-basis: 45%;
+
+}
+
+.show-name {
+    font-size: 1.3rem;
+    min-width: 100%;
+
     
 }
-.show-name{
-    font-size: 1.3rem;
-min-width: 100%;
 
-    // background-color: darkblue;
-}
-.show-info{
+.show-info {
     display: flex;
     align-items: center;
     gap: 10px;
     color: $white-color;
-    .original-languauge{
+
+    .original-languauge {
         border: 1px solid $white-color;
         padding: 3px;
         border-radius: 2px;
     }
-    .show-actors{
+
+    .show-actors {
         display: flex;
         gap: 10px;
     }
 }
-.show-tagline{
+
+.show-tagline {
     color: $white-color;
 }
-.rating{
+
+.rating {
     color: $white-color;
 }
-.show-type{
+
+.show-type {
     color: $white-color;
 }
-.show-btns{
-    .add{
+
+.show-btns {
+    .btn-style {
         outline: none;
         border: none;
         font-weight: 550;
-        background-color: $white-color;
+        background-color: transparent;
         font-size: 1.2rem;
-        padding: .8rem 2.3rem;
+        padding: .7rem 2rem;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -80,9 +90,24 @@ min-width: 100%;
         border-radius: 2px;
         cursor: pointer;
         transition: 200ms background-color ease-in-out;
+        border-radius: 30px;
+        margin-top: 10px;
+        
+    }
+    .add{
+        background-color: $white-color;
+
+        &:hover {
+            background-color: $more-darker-white;
+        }
+    }
+    .play-trailer{
+        color: $white-color;
+        gap: 10px;
+        padding: .7rem 1.5rem;
 
         &:hover{
-            background-color: $more-darker-white;
+            color: $dark-purple;
         }
     }
 }
@@ -94,30 +119,35 @@ min-width: 100%;
     background-color: $white-color;
     opacity: .2;
 }
-.more-details{
+
+.more-details {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    // background-color: darkblue;
+
 }
 
-.show-poster{
+.show-poster {
     display: flex;
     gap: 20px;
 
-    .poster{
+    .poster {
         min-width: 188px;
         max-width: 188px;
         max-height: 283px;
         min-height: 283px;
-        img{
-           object-fit: cover;
-           width: 100%;
-           border-radius: 5px;
-           border: 2px solid rgba(255, 255, 255, 0.32);
+
+        img {
+            object-fit: cover;
+            width: 100%;
+            border-radius: 5px;
+            border: 2px solid rgba(255, 255, 255, 0.32);
 
         }
     }
-    .overview-and-genres{
+
+    .overview-and-genres {
         max-width: 220px;
         min-width: 220px;
         max-height: 283px;
@@ -128,12 +158,14 @@ min-width: 100%;
         color: $white-color;
         padding: 2px 0;
         opacity: .8;
-        .show-genres{
+
+        .show-genres {
             display: flex;
             align-items: center;
             gap: 10px;
+            flex-wrap: wrap;
 
-            .show-genre{
+            .show-genre {
                 border: 1px solid $white-color;
                 padding: 4px;
                 border-radius: 2px;
@@ -142,64 +174,46 @@ min-width: 100%;
     }
 }
 
-.show-trailer{
-    // background-color: darkblue;
-    max-width: 300px;
-    min-width: 300px;
-    max-height: 172.61px;
-    min-height: 172.61px;
-    border-radius: 5px;
-    border: 2px solid rgba(255, 255, 255, 0.32);
-    transition: transform 200ms ease-in-out;
-    position: relative;
 
-    img{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 5px;
-       
+
+@media only screen and (min-width: 0px) and (max-width: 770px) {
+    .more-details {
+        flex-wrap: wrap;
+        margin-bottom: 20px;
     }
-    .play-button{
-        position: absolute;
-        max-width: 294px;
-        min-width: 294px;
-        max-height: 170.61px;
-        min-height: 170.61px;
+    .show-name{
+        min-width:330px;
+        max-width:330px;
+    }
+
+    .show-poster {
         display: flex;
         align-items: center;
-        justify-content: center;
+        gap: 10px;
 
-        svg{
-            color: $white-color;
-            font-size: 1.7rem;
-            transition: transform 200ms ease-in-out;
-            cursor: pointer;
+        .poster {
+            min-width: 150px;
+            max-width: 150px;
+            max-height: 219px;
+            min-height: 219px;
+
+    
+            img {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+                border-radius: 5px;
+                border: 2px solid rgba(255, 255, 255, 0.32);
+    
+            }
+        }
+        .overview-and-genres {
+            max-width: 180px;
+            min-width: 160px;
+            max-height: 220px;
+            min-height: 220px;
+            
         }
 
-        &:hover svg {
-            transform: scale(1.5);
-        }
-
-
-    }
-
-    &:hover {
-        transform: scale(1.05);
-    }
-}
-@media only screen and (min-width: 0px) and (max-width: 770px){
-    .more-details{
-        margin-top: 50px;
-        flex-wrap: wrap;
-        // justify-content: ;
-        // background-color: darkblue;
-        margin-bottom: 20px;
-        
-        
-    }
-
-    .show-poster{
-        margin-bottom: 20px;
     }
 }
