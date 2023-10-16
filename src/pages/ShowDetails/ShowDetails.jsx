@@ -72,7 +72,6 @@ function ShowDetails() {
             </div>
           </div>
         </div>
-
       </div>
     </div>
     <Gradiant />

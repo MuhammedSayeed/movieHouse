@@ -7,7 +7,7 @@ function NavbarLinks({ show,handleOpenMiniBar }) {
         { name: "Movies", path: 'shows/movie/28/1', id: 2 },
         { name: "TvShow", path: 'shows/tv/10759/1', id: 3 },
         { name: "Favorites", path: 'favorites', id: 4 },
-        { name: "Recommendition", path: 'recommenditon', id: 5 },
+        { name: "Recommendition", path: 'recommenditons', id: 5 },
     ]
 
     const search = {
