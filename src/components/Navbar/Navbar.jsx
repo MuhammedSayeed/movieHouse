@@ -1,12 +1,15 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './Navbar.scss'
 import logo from '../../assets/imgs/logo.png'
 import { FaBars } from 'react-icons/fa'
 import { BiSearch } from 'react-icons/bi'
-import { NavLink, Outlet, useNavigation } from 'react-router-dom'
+import { NavLink, Outlet, useNavigate, useNavigation } from 'react-router-dom'
 import LoadingScreen from '../LoadingScreen/LoadingScreen.jsx'
 import NavbarLinks from './NavbarLinks.jsx'
+import { UserContext } from '../../Hooks/Context/AuthContext.jsx'
 function Navbar() {
+  const { logOut } = useContext(UserContext);
+  const navigate = useNavigate();
 
   const [openMiniNav, setOpenMiniNav] = useState(false);
   const navigation = useNavigation();
@@ -16,9 +19,18 @@ function Navbar() {
     setOpenMiniNav(!openMiniNav)
   }
 
-  const search = {
-    icon: <BiSearch />
+  const handleLogOut = async () => {
+    try {
+      await logOut();
+      navigate('/auth');
+      console.log("you are logged out");
+
+    } catch (error) {
+      console.log(error.message)
+    }
   }
+
+
 
   return <>
     <nav className='navbar'>
@@ -34,17 +46,17 @@ function Navbar() {
       <div className="right">
         <div className="searchAndLogout">
           <div className="search">
-            {search.icon}
+            <BiSearch />
           </div>
           <div className="logout">
-            <button className='logout'>
+            <button onClick={handleLogOut} className='logout-btn'>
               LOGOUT
             </button>
           </div>
         </div>
       </div>
       {
-        openMiniNav && <div className="miniNav"> <NavbarLinks handleOpenMiniBar={handleOpenMiniBar} show={true} /></div>
+        openMiniNav && <div className="miniNav"> <NavbarLinks handleLogOut = {handleLogOut} handleOpenMiniBar={handleOpenMiniBar} show={true} /></div>
       }
     </nav>
     {navigation.state === 'loading' ? <LoadingScreen /> : <Outlet />}

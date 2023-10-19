@@ -1,0 +1,18 @@
+@import '../../../assets/scss/variables';
+.auth-btn{
+    width: 350px;
+    border-radius: .5rem;
+    padding: 1rem 0;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: $white-color;
+    color: $dark-purple;
+    transition: 200ms all ease-in-out;
+    &:hover{
+        background-color: $more-darker-white;
+    }
+
+}

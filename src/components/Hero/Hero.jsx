@@ -1,12 +1,13 @@
 import React from 'react'
 import './Hero.scss'
 import { getYears, truncateString } from '../../utils/utils.jsx';
+import { NavLink } from 'react-router-dom';
 function Hero({ data }) {
 
   console.log(data);
   return <div className="heroContent">
     <div className="show-name">
-      <h1>{truncateString(8,data?.original_name) || truncateString(8,data?.original_title)}</h1>
+      <h1>{truncateString(8, data?.original_name) || truncateString(8, data?.original_title)}</h1>
     </div>
     <div className="show-desc">
       <p>{truncateString(85, data.overview)}</p>
@@ -19,8 +20,7 @@ function Hero({ data }) {
     </div>
     <div className="show-btns">
       <button className='add btn-style'>Add + </button>
-      <button className='more btn-style'>More</button>
-
+      <NavLink to={`/shows/${data.original_name ? 'tv' : 'movie'}/${data.id}`} className='more btn-style'>More</NavLink>
     </div>
   </div>
 }

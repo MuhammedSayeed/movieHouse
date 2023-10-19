@@ -20,3 +20,14 @@
     max-height: 10.32rem;
     height: 10.32rem;
 }
+
+.fade-bottom {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 2;
+    height: 100vh;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(180deg, rgba(26, 38, 76, 0.39) 0%, rgba(26, 38, 76, 1) 73%);
+}

@@ -1,0 +1,52 @@
+@import '../../assets/scss/variables';
+// .auth-btn{
+//     width: 350px;
+//     border-radius: .5rem;
+//     padding: 1rem 0;
+//     outline: none;
+//     border: none;
+//     font-size: 1rem;
+//     font-weight: 600;
+//     cursor: pointer;
+//     background-color: $white-color;
+//     color: $dark-purple;
+//     transition: 200ms all ease-in-out;
+//     &:hover{
+//         background-color: $more-darker-white;
+//     }
+
+// }
+
+
+.already-user-or-new-user{
+    margin-top: 20px;
+    text-align: center;
+
+    p{
+        color: $white-color;
+
+        a{
+            color: $more-darker-white ;
+
+            &:hover{
+                color : $white-color;
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.error-message-container{
+    text-align: center;
+    color: $more-darker-white;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 600px) {
+    .form-auth{
+        text-align: center;
+    }
+    .auth-btn{
+        width: 330px;
+        margin: auto;
+    }
+}
