@@ -11,6 +11,7 @@ import MediaTypes from './components/MediaTypes/MediaTypes.jsx'
 import Genres, { genresLoader } from './components/Genres/Genres.jsx'
 import Results, { resultsLoader } from './components/Results/Results.jsx'
 import Register from './pages/Register/Register.jsx'
+import ProtectRoutes from './components/ProtectRoutes/ProtectRoutes.jsx'
 
 function App() {
 
@@ -19,7 +20,7 @@ function App() {
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <Navbar />,
+      element: <ProtectRoutes><Navbar /></ProtectRoutes> ,
       errorElement: <Error />,
       children: [
         {

@@ -21,9 +21,10 @@ function Navbar() {
 
   const handleLogOut = async () => {
     try {
-      await logOut();
-      navigate('/auth');
-      console.log("you are logged out");
+      await logOut().then(()=>{
+        navigate('/auth');
+        localStorage.removeItem("uid");
+      })
 
     } catch (error) {
       console.log(error.message)

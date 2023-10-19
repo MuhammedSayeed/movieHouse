@@ -8,10 +8,10 @@ const userId = localStorage.getItem("uid");
 
 // }
 
-const createCollection = async (UserId) => {
+const createCollection = async (id) => {
     try {
         if (userId) {
-            const usersRef = doc(db, "users", UserId)
+            const usersRef = doc(db, "users", id)
             await setDoc(usersRef, {
                 favList: []
             })
