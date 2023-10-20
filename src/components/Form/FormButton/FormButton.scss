@@ -1,4 +1,9 @@
 @import '../../../assets/scss/variables';
+.btn-container{
+    width: 100%;
+    display: flex;
+}
+
 .auth-btn{
     width: 350px;
     border-radius: .5rem;
