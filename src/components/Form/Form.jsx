@@ -6,7 +6,7 @@ import { createCollection } from '../../services/firebase/firebaseUtils.js';
 import FormButton from './FormButton/FormButton.jsx';
 import FormInput from './FormInput/FormInput.jsx';
 import Spinner from '../Spinner/Spinner.jsx';
-function Form({signupSwitch,setSignupSwitch}) {
+function Form({ signupSwitch, setSignupSwitch }) {
     const [alreadyUser, setAlreadyUser] = useState(false);
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
@@ -51,13 +51,12 @@ function Form({signupSwitch,setSignupSwitch}) {
                 passwordRef.current.value
 
             ).then((res) => {
+                createCollection(res.user.uid);
+                localStorage.setItem("uid", res.user.uid);
                 setLoading(false);
                 navigate('/');
-                localStorage.setItem("uid", res.user.uid);
-                createCollection(res.user.uid);
             })
         } catch (err) {
-            console.log(err.message);
             setLoading(false);
             handleErrorMessage(err.message)
             clearInputs();
@@ -71,10 +70,9 @@ function Form({signupSwitch,setSignupSwitch}) {
                 emailRef.current.value,
                 passwordRef.current.value
             ).then((res) => {
+                localStorage.setItem("uid", res.user.uid);
                 setLoading(false);
                 navigate('/');
-                localStorage.setItem("uid", res.user.uid);
-
             })
         } catch (err) {
             handleErrorMessage(err.message);

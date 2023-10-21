@@ -4,14 +4,15 @@ import { db } from "./firebase"
 const userId = localStorage.getItem("uid");
 
 const createCollection = async (UserId) => {
+    const docRef = doc(db, "users", UserId);
     try {
         if (userId) {
-            await setDoc(doc(db, "users", UserId), {
+            await setDoc(docRef, {
                 favList: []
             })
         }
-    } catch {
-
+    } catch(error) {
+        console.log(error);
     }
 }
 
