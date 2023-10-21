@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './ShowDetails.scss'
 import { useLoaderData, useParams } from 'react-router-dom'
-import { getDetails, baseUrl_original, baseUrl_posterMid, small_backdrop } from '../../services/api/api.js'
+import { getDetails, baseUrl_original, baseUrl_posterMid} from '../../services/api/api.js'
 import { getYears, roundToOneDecimalPlace, truncateString } from '../../utils/utils.jsx';
 import Gradiant from '../../components/Gradiant/Gradiant.jsx';
 import { FaPlay } from 'react-icons/fa';
@@ -11,7 +11,6 @@ function ShowDetails() {
   const data = useLoaderData();
   const [actors, setActors] = useState(data.credits.cast?.slice(0, 3));
   const { type } = useParams();
-  console.log(data.genres);
 
   return <div style={{ backgroundImage: `url('${baseUrl_original}${data.backdrop_path}')` }}
     className="show-details-container">

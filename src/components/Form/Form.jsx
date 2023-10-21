@@ -6,7 +6,7 @@ import { createCollection } from '../../services/firebase/firebaseUtils.js';
 import FormButton from './FormButton/FormButton.jsx';
 import FormInput from './FormInput/FormInput.jsx';
 import Spinner from '../Spinner/Spinner.jsx';
-function Form() {
+function Form({signupSwitch,setSignupSwitch}) {
     const [alreadyUser, setAlreadyUser] = useState(false);
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
@@ -29,11 +29,14 @@ function Form() {
             case "Firebase: Error (auth/wrong-password).":
                 setError("Invalid email or password")
                 break;
+            case "Firebase: Error (auth/email-already-in-use).":
+                setError("email already in use")
+                break;
         }
     }
     const clearInputs = () => {
         emailRef.current.value = "";
-        passRef.current.value = "";
+        passwordRef.current.value = "";
     }
     const register = async (e) => {
         e.preventDefault();
@@ -54,6 +57,7 @@ function Form() {
                 createCollection(res.user.uid);
             })
         } catch (err) {
+            console.log(err.message);
             setLoading(false);
             handleErrorMessage(err.message)
             clearInputs();
@@ -81,6 +85,9 @@ function Form() {
     const switchBtn = () => {
         setAlreadyUser(!alreadyUser)
         setError("");
+        clearInputs();
+        setSignupSwitch(!signupSwitch)
+
     }
 
     return (

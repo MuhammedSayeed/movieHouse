@@ -4,7 +4,6 @@ import { getYears, truncateString } from '../../utils/utils.jsx';
 import { NavLink } from 'react-router-dom';
 function Hero({ data }) {
 
-  console.log(data);
   return <div className="heroContent">
     <div className="show-name">
       <h1>{truncateString(8, data?.original_name) || truncateString(8, data?.original_title)}</h1>

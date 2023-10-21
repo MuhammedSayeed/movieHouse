@@ -1,7 +1,8 @@
 @import '../../assets/scss/variables';
 
 
-.addToFavorites{
+
+.card-btn-style{
     outline: none;
     cursor: pointer;
     color: $white-color;
@@ -9,10 +10,24 @@
     padding: 2px 12px;
     transition: background-color 100ms, color 100ms;
     font-weight: 800;
-    background-color: transparent;
 
+}
+
+.addToFavorites{
+
+    background-color: transparent;
     &:hover{
         background-color: $white-color;
         color: black;
+    }
+}
+
+.removeFromFavorites{
+    background-color: $white-color;
+    color:$dark-purple;
+    border: none;
+
+    &:hover{
+        background-color: $more-darker-white;
     }
 }

@@ -1,8 +1,8 @@
 import React from 'react'
 import './Gradiant.scss'
-function Gradiant({ register }) {
+function Gradiant({ Auth }) {
 
-    if (register) {
+    if (Auth) {
 
         return <>
         <div className='fade-bottom'></div>

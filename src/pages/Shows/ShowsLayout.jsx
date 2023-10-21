@@ -13,7 +13,6 @@ function ShowsLayout() {
   const [currentPage, setCurrentPage] = useState(parseInt(params.page))
   const [loading, setLoading] = useState(false);
 
-  console.log(useParams());
 
 
 

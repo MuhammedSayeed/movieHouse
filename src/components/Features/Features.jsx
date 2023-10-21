@@ -3,15 +3,15 @@ import './Features.scss'
 import { MdAccountCircle, MdChecklistRtl } from 'react-icons/md'
 import { FaVideo } from 'react-icons/fa'
 import logo from '../../assets/imgs/logo.png'
-function Features() {
+function Features({signupSwitch}) {
     return <div className="features-container">
         <div className="header">
             <div className="logo">
                 <img src={logo} alt="movie-house-logo" />
             </div>
-            <h2>Create Free Account</h2>
-        </div>
-        <div className="features">
+            <h2>{signupSwitch ? 'Create Free Account' : 'Welcome back'}</h2>
+        </div> 
+        {signupSwitch && <div className="features">
             <div className="icon">
                 <MdAccountCircle />
                 <h4>Free Account</h4>
@@ -24,7 +24,8 @@ function Features() {
                 <FaVideo />
                 <h4>Watch Trailers</h4>
             </div>
-        </div>
+        </div> }
+        
     </div>
 }
 
