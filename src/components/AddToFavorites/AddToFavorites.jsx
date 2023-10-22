@@ -11,7 +11,6 @@ function AddToFavorites({ showData }) {
 
   useEffect(() => {
 
-
     if (subscribe) {
       readData(showData.showId)
 

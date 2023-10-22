@@ -29,7 +29,6 @@ const AuthContextProvider = ({ children }) => {
         });
         return ()=>{
             unsubscribe()
-            localStorage.removeItem("uid");
         }
     },[])
 
