@@ -35,14 +35,17 @@
     width: 100%;
     flex-basis: 45%;
 
+    .show-name {
+        font-size: 1.3rem;
+        min-width: 100%;
+       h1{
+        text-align: left;
+       }
+    }
+    
+
 }
 
-.show-name {
-    font-size: 1.3rem;
-    min-width: 100%;
-
-
-}
 
 .show-info {
     display: flex;

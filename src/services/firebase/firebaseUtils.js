@@ -2,22 +2,24 @@ import { doc, setDoc } from "firebase/firestore"
 import { db } from "./firebase"
 
 const userId = localStorage.getItem("uid");
+const docRef = doc(db, "users", userId);
 
-const createCollection = async (UserId) => {
-    const docRef = doc(db, "users", UserId);
+const createDataBase = async (UserId) => {
     try {
         if (userId) {
-            await setDoc(docRef, {
+            const usersRef = doc(db, "users", UserId)
+            await setDoc(usersRef, {
                 favList: []
             })
         }
-    } catch(error) {
-        console.log(error);
+    } catch {
+
     }
 }
 
 
 
 export {
-    createCollection,
+    createDataBase,
+    docRef
 }

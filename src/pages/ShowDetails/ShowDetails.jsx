@@ -58,7 +58,7 @@ function ShowDetails() {
           </div>
           <div className="overview-and-genres">
             <div className='overview'>
-              <p>{truncateString(170, data.overview)}</p>
+              <p>{truncateString(130, data.overview)}</p>
             </div>
             <div className="show-genres">
               {

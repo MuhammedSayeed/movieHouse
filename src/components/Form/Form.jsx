@@ -2,10 +2,10 @@ import React, { useContext, useRef, useState } from 'react'
 import './Form.scss'
 import { NavLink, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../Hooks/Context/AuthContext.jsx';
-import { createCollection } from '../../services/firebase/firebaseUtils.js';
 import FormButton from './FormButton/FormButton.jsx';
 import FormInput from './FormInput/FormInput.jsx';
 import Spinner from '../Spinner/Spinner.jsx';
+import { createDataBase } from '../../services/firebase/firebaseUtils.js';
 function Form({ signupSwitch, setSignupSwitch }) {
     const [alreadyUser, setAlreadyUser] = useState(false);
     const [error, setError] = useState("");
@@ -51,7 +51,7 @@ function Form({ signupSwitch, setSignupSwitch }) {
                 passwordRef.current.value
 
             ).then((res) => {
-                createCollection(res.user.uid);
+                createDataBase(res?.user.uid)
                 localStorage.setItem("uid", res.user.uid);
                 setLoading(false);
                 navigate('/');
