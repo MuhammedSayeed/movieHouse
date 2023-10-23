@@ -1,0 +1,23 @@
+@import '../../assets/scss/variables';
+.favorites-container {
+    min-height: 100vh;
+    width: 100%;
+
+    .favorites-content {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        p{
+            color : $white-color;
+        }
+    }
+}
+
+.favorites-layout {
+   display: flex;
+   gap: 10px;
+   margin-top: 75px;
+}

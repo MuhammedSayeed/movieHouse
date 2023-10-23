@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { addToFavorite ,removeFromFavorite } from '../store/Rtk/slices/favoriteSlice.jsx'
 import { db } from '../services/firebase/firebase.js';
+import { changeStatus } from '../store/Rtk/slices/statusSlice.jsx';
 
 
 
@@ -10,6 +11,8 @@ const useFirestore = () => {
 
   const dispatch = useDispatch();
   const userId = localStorage.getItem("uid")
+  const status = useSelector(state => state.status.status)
+
 
 
   const readData = async (showId) => {

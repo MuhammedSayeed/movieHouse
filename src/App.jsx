@@ -12,6 +12,7 @@ import Genres, { genresLoader } from './components/Genres/Genres.jsx'
 import Results, { resultsLoader } from './components/Results/Results.jsx'
 import ProtectRoutes from './components/ProtectRoutes/ProtectRoutes.jsx'
 import Auth from './pages/Auth/Auth.jsx'
+import Favorites from './pages/Favorites/Favorites.jsx'
 
 function App() {
 
@@ -43,6 +44,10 @@ function App() {
         },
         {
           path : 'shows/:type/:id' , element : <ShowDetails/> , loader : showDetailsLoader
+        },
+        {
+          path : 'favorites',
+          element : <Favorites/>
         },
         {
           path : 'recommenditons',
