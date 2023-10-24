@@ -79,6 +79,9 @@
 }
 
 .show-btns {
+    display: flex;
+    align-items: center;
+    
     .btn-style {
         outline: none;
         border: none;

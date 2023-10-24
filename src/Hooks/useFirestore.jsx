@@ -1,7 +1,7 @@
 import { arrayRemove, arrayUnion, doc, getDoc, updateDoc } from 'firebase/firestore';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { addToFavorite ,removeFromFavorite } from '../store/Rtk/slices/favoriteSlice.jsx'
+import { addToFavorite, removeFromFavorite } from '../store/Rtk/slices/favoriteSlice.jsx'
 import { db } from '../services/firebase/firebase.js';
 import { changeStatus } from '../store/Rtk/slices/statusSlice.jsx';
 
@@ -16,13 +16,13 @@ const useFirestore = () => {
 
 
   const readData = async (showId) => {
-
     if (userId) {
       const docSnap = await getDoc(doc(db, "users", userId));
       if (docSnap.data().favList.find(obj => obj.showId == showId)) {
         dispatch(addToFavorite(showId));
+        return true;
       }
-
+      
     }
 
 
@@ -51,10 +51,10 @@ const useFirestore = () => {
   }
 
 
-  return { readData, addAndRead, removeAndRead, PostDataToApi };
+  return { readData, addAndRead, removeAndRead, PostDataToApi , DeleteDataFromApi };
 
 
-  return { readData, addAndRead, removeAndRead, PostDataToApi };
+  
 };
 
 export default useFirestore;

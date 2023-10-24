@@ -1,54 +1,77 @@
 import React, { useEffect, useState } from 'react'
 import './ShowDetails.scss'
 import { useLoaderData, useParams } from 'react-router-dom'
-import { getDetails, baseUrl_original, baseUrl_posterMid} from '../../services/api/api.js'
+import { getDetails, baseUrl_original, baseUrl_posterMid } from '../../services/api/api.js'
 import { getYears, roundToOneDecimalPlace, truncateString } from '../../utils/utils.jsx';
 import Gradiant from '../../components/Gradiant/Gradiant.jsx';
 import { FaPlay } from 'react-icons/fa';
-import { updateDoc } from 'firebase/firestore';
+import useFirestore from '../../Hooks/useFirestore.jsx';
+import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../../services/firebase/firebase.js';
+import Spinner from '../../components/Spinner/Spinner.jsx'
 
 function ShowDetails() {
 
-  const data = useLoaderData();
+  const { data, favoriteList } = useLoaderData();
   const userId = localStorage.getItem("uid")
   const [actors, setActors] = useState(data.credits.cast?.slice(0, 3));
-  const [videoToken,setVideoToken] = useState("");
+  const [videoToken, setVideoToken] = useState("");
   const [added, setAdded] = useState(false);
   const { type } = useParams();
+  const { readData, PostDataToApi } = useFirestore();
+  const [loading, setLoading] = useState(true);
 
 
-  const playTrailer = ()=>{
+  const showData = {
+    showId: data.id,
+    title: data.original_name || data.original_title,
+    posterPath: data.poster_path,
+    realeaseDate: data.first_air_date || data.release_date,
+    voteAverage: data.vote_average,
+    type: data.original_name ? 'tv' : 'movie'
+  }
+  const playTrailer = () => {
     const trailerUrl = `https://www.youtube.com/watch?v=${videoToken}`;
     window.open(trailerUrl, '_blank');
   }
-  const handleAddToFavorites = async (data) => {
-    setAdded(true);
-    PostDataToApi(data)
-}
-const handleRemoveFromFavorites = async (id) => {
-    await updateDoc(doc(db, "users", userId), {
-        favList: favoriteList.filter(fav => fav.showId != id)
-    }).then(()=>{
-        setAdded(false)
-    })
-}
 
-  useEffect(()=>{
-    const renderTrailer = async ()=>{
+  const handleRemoveFromFavorites = async (id) => {
+    await updateDoc(doc(db, "users", userId), {
+      favList: favoriteList.filter(fav => fav.showId != id)
+    }).then(() => {
+      setAdded(false);
+    })
+  }
+
+  const handleAddToFavorites = async () => {
+    await PostDataToApi(showData).then(() => {
+      setAdded(true);
+    })
+  }
+
+
+  useEffect(() => {
+    let isApiSubscribed = true;
+    const renderTrailer = async () => {
       if (data.videos.results.length > 0) {
         const trailerObj = await data.videos.results.find(video => video.site == 'YouTube' && video.type == 'Trailer');
         setVideoToken(trailerObj?.key)
+      }
     }
-    }
-    let isApiSubscribed = true;
-    if(isApiSubscribed){
+    if (isApiSubscribed) {
       renderTrailer();
+      readData(data.id).then((res) => {
+        setLoading(false);
+        if (res) {
+          setAdded(true);
+        }
+      })
     }
-    return ()=>{
+    return () => {
       isApiSubscribed = false;
     }
-  },[])
+  }, [])
+
 
   return <div style={{ backgroundImage: `url('${baseUrl_original}${data.backdrop_path}')` }}
     className="show-details-container">
@@ -84,8 +107,18 @@ const handleRemoveFromFavorites = async (id) => {
           {type}
         </div>
         <div className="show-btns">
-          <button className='btn-style add'>Add +</button>
-          <button onClick={playTrailer} className='btn-style play-trailer'>trailer <FaPlay/></button>
+          {
+            loading ? <div>
+              <Spinner size={'30px'} />
+            </div> :
+              (
+                added ?
+                  <button onClick={() => { handleRemoveFromFavorites(data.id) }} className='btn-style add'>Remove -</button>
+                  :
+                  <button onClick={() => { handleAddToFavorites() }} className='btn-style add'>Add +</button>
+              )
+          }
+          <button onClick={playTrailer} className='btn-style play-trailer'>trailer <FaPlay /></button>
         </div>
       </div>
       <div className="separate-line"></div>
@@ -117,8 +150,20 @@ const handleRemoveFromFavorites = async (id) => {
 
 export default ShowDetails
 
+export const readData = async () => {
+  const userId = localStorage.getItem("uid")
+
+  if (userId) {
+    const docSnap = await getDoc(doc(db, "users", userId));
+    if (docSnap.exists()) {
+      return docSnap.data().favList;
+    }
+  }
+}
 export const showDetailsLoader = async ({ params }) => {
   const response = await fetch(getDetails(params.type, params.id));
+  const favoriteList = await readData();
+
   if (!response.ok) {
     throw json({ Message: `couldn't fetch details` },
       {
@@ -127,6 +172,10 @@ export const showDetailsLoader = async ({ params }) => {
   }
   else {
     const resData = await response.json();
-    return resData
+    return {
+      data: resData,
+      favoriteList: favoriteList
+
+    }
   }
 } 

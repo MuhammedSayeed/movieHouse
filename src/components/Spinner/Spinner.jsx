@@ -1,8 +1,8 @@
 import React from 'react'
 import './Spinner.scss'
-function Spinner() {
+function Spinner({size}) {
   return (
-    <div className="spinner">
+    <div style={{width : size , height : size}} className="spinner">
       <div className="spinner-inner"></div>
     </div>
   )
