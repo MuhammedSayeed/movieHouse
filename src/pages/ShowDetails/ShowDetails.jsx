@@ -1,16 +1,54 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './ShowDetails.scss'
 import { useLoaderData, useParams } from 'react-router-dom'
 import { getDetails, baseUrl_original, baseUrl_posterMid} from '../../services/api/api.js'
 import { getYears, roundToOneDecimalPlace, truncateString } from '../../utils/utils.jsx';
 import Gradiant from '../../components/Gradiant/Gradiant.jsx';
 import { FaPlay } from 'react-icons/fa';
+import { updateDoc } from 'firebase/firestore';
+import { db } from '../../services/firebase/firebase.js';
 
 function ShowDetails() {
 
   const data = useLoaderData();
+  const userId = localStorage.getItem("uid")
   const [actors, setActors] = useState(data.credits.cast?.slice(0, 3));
+  const [videoToken,setVideoToken] = useState("");
+  const [added, setAdded] = useState(false);
   const { type } = useParams();
+
+
+  const playTrailer = ()=>{
+    const trailerUrl = `https://www.youtube.com/watch?v=${videoToken}`;
+    window.open(trailerUrl, '_blank');
+  }
+  const handleAddToFavorites = async (data) => {
+    setAdded(true);
+    PostDataToApi(data)
+}
+const handleRemoveFromFavorites = async (id) => {
+    await updateDoc(doc(db, "users", userId), {
+        favList: favoriteList.filter(fav => fav.showId != id)
+    }).then(()=>{
+        setAdded(false)
+    })
+}
+
+  useEffect(()=>{
+    const renderTrailer = async ()=>{
+      if (data.videos.results.length > 0) {
+        const trailerObj = await data.videos.results.find(video => video.site == 'YouTube' && video.type == 'Trailer');
+        setVideoToken(trailerObj?.key)
+    }
+    }
+    let isApiSubscribed = true;
+    if(isApiSubscribed){
+      renderTrailer();
+    }
+    return ()=>{
+      isApiSubscribed = false;
+    }
+  },[])
 
   return <div style={{ backgroundImage: `url('${baseUrl_original}${data.backdrop_path}')` }}
     className="show-details-container">
@@ -47,7 +85,7 @@ function ShowDetails() {
         </div>
         <div className="show-btns">
           <button className='btn-style add'>Add +</button>
-          <button className='btn-style play-trailer'>trailer <FaPlay/></button>
+          <button onClick={playTrailer} className='btn-style play-trailer'>trailer <FaPlay/></button>
         </div>
       </div>
       <div className="separate-line"></div>
@@ -62,7 +100,7 @@ function ShowDetails() {
             </div>
             <div className="show-genres">
               {
-                data.genres?.map((genre) => {
+                data.genres?.slice(0, 2).map((genre) => {
                   return <p key={genre.id} className="show-genre">
                     {genre.name}
                   </p>

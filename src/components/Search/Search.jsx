@@ -32,7 +32,7 @@ function Search({handleOpenSearchBar}) {
         </div>
         <div className="search-modal">
             <SearchInput handleOpenSearchBar = {handleOpenSearchBar} searching ={searching} inputSearch={inputSearch} />
-            <SearchResults data={data} />
+            <SearchResults handleOpenSearchBar = {handleOpenSearchBar} data={data} />
             <SearchFooter activeType={activeType} selectMediaType={selectMediaType} />
         </div>
     </div>

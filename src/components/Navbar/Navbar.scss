@@ -49,10 +49,15 @@
     }
 
     .searchAndLogout .search {
-        color: white;
+        color: $white-color;
         font-size: 22px;
         display: flex;
         align-items: center;
+        cursor: pointer;
+
+        &:hover{
+            color: $more-darker-white;
+        }
 
     }
 
