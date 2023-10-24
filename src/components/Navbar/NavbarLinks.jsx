@@ -1,7 +1,7 @@
 import React from 'react'
 import { BiSearch } from "react-icons/bi";
 import { NavLink} from "react-router-dom";
-function NavbarLinks({ handleLogOut , show, handleOpenMiniBar }) {
+function NavbarLinks({ handleLogOut , show, handleOpenMiniBar , handleOpenSearchBar }) {
     const Links = [
         { name: "Home", path: '/', id: 1 },
         { name: "Movies", path: 'shows/movie/28/1', id: 2 },
@@ -26,7 +26,7 @@ function NavbarLinks({ handleLogOut , show, handleOpenMiniBar }) {
             }
         </div>
         {show && <div className="searchAndLogout">
-            <div className="search">
+            <div onClick={ ()=>{handleOpenSearchBar(); handleOpenMiniBar(); }   } className="search">
                 <BiSearch />
             </div>
             <div className="logout">

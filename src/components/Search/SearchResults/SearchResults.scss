@@ -1,0 +1,42 @@
+@import '../../../assets/scss/variables';
+.search-results{
+    max-width: 100%;
+    min-width: 100%;
+    padding: 12px 12px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+    .no-results-found{
+        color: $white-color;
+        text-align: center;
+    }
+    .show{
+        background-color: #1117298e;
+        min-width: 100%;
+        max-width: 100%;
+        min-height: 95px;
+        max-height: 95px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        padding: 0px 10px;
+        color: $white-color;
+        transition: all 200ms ease-in-out;
+        img{
+            min-height: 80px;
+            max-height: 80px;
+            border-radius: 5px;
+        }
+        &:hover{
+            transform: scale(1.03);
+            background-color: $search-dark;
+        }
+    }
+}
+
+.search-results::-webkit-scrollbar{
+    display: none;
+}

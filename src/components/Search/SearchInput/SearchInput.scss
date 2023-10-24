@@ -1,0 +1,55 @@
+@import '../../../assets/scss/variables';
+
+.search-input-container{
+    width: 100%;
+    max-width: 100%;
+    padding: 14px 12px 0 12px;
+    margin-bottom: 15px;
+}
+
+.search-input{
+    background-color: $search-dark;
+    border: 2px solid $search-purple-light;
+    border-radius: 5px;
+    padding: 4px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.start-search{
+    color:  rgb(223, 223, 223);
+    font-weight: 500;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-basis: 80%;
+
+    input{
+        background-color: transparent;
+        outline: none;
+        border: none;
+        width: 100%;
+        color:  rgb(223, 223, 223);
+        height: 50px;
+        font-weight: 500;
+        font-size: 1.2rem;
+
+        &::placeholder{
+            font-size: 1.1rem;
+
+        }
+    }
+}
+
+.close-search{
+    display: flex;
+    align-items: center;
+    font-size: 1.8rem;
+    color: $white-color;
+    cursor: pointer;
+    transition: color 200ms ease-in-out;
+    &:hover{
+        color: rgb(136, 158, 255);
+    }
+}

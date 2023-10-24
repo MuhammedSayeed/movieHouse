@@ -1,0 +1,51 @@
+@import '../../../assets/scss/variables';
+
+.footer-search {
+    background-color: $search-dark;
+    width: 100%;
+    min-height: 70px;
+    max-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 14px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+    .search-type {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    button {
+        background-color: transparent;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+        padding: 4px 8px;
+        border-radius: 5px;
+        font-weight: 600;
+        color: $white-color;
+        transition: color 200ms ease-in-out, background-color 200ms ease-in-out;
+
+        &:hover {
+            background-color: $white-color;
+            color: $search-dark;
+        }
+
+    }
+
+    button.active {
+        background-color: $white-color;
+        color: $search-dark;
+    }
+
+    .logo {
+        img {
+            min-height: 1.4rem;
+            max-height: 1.4rem;
+        }
+    }
+}

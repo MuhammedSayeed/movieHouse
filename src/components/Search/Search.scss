@@ -1,0 +1,46 @@
+@import '../../assets/scss/variables';
+
+.search-container {
+    min-height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-overaly {
+    background-color: rgba(0, 0, 0, 0.405);
+    min-height: 100%;
+    width: 100%;
+}
+
+.search-modal {
+    position: fixed;
+    z-index: 1000;
+    max-width: 475px;
+    min-width: 460px;
+    min-height: 204px;
+    max-height: 600px;
+    background-color: $search-light;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.219) 0px 0px 7px 3px;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 670px) {
+
+
+    .search-modal {
+        max-width: 350px;
+        min-width: 350px;
+    }
+
+}
